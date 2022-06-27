@@ -29,34 +29,32 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sliderAction() {
-        redValueLabel.text = String(format: "%.2f",redSlider.value)
-        greenValueLabel.text = String(format: "%.2f",greenSlider.value)
-        blueValueLabel.text = String(format: "%.2f",blueSlider.value)
+        redValueLabel.text = formattingValueLabel(toString: redSlider.value)
+        greenValueLabel.text = formattingValueLabel(toString: greenSlider.value)
+        blueValueLabel.text = formattingValueLabel(toString: blueSlider.value)
         colorizedView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
     }
     
     // Private Methods
+    private func formattingValueLabel(toString value: Float) -> String {
+        return String(format: "%.2f", value)
+    }
+    
     private func setupLabel() {
-        redValueLabel.text = String(format: "%.2f", redSlider.value)
-        greenValueLabel.text = String(format: "%.2f", greenSlider.value)
-        blueValueLabel.text = String(format: "%.2f", blueSlider.value)
+        redValueLabel.text = formattingValueLabel(toString: redSlider.value)
+        greenValueLabel.text = formattingValueLabel(toString: greenSlider.value)
+        blueValueLabel.text = formattingValueLabel(toString: blueSlider.value)
     }
     
     private func setupSlider() {
         redSlider.value = 0
         redSlider.minimumTrackTintColor = .red
-        redSlider.minimumValue = 0
-        redSlider.maximumValue = 1
         
         greenSlider.value = 0
         greenSlider.minimumTrackTintColor = .green
-        greenSlider.minimumValue = 0
-        greenSlider.maximumValue = 1
         
         blueSlider.value = 0
         blueSlider.minimumTrackTintColor = .blue
-        blueSlider.minimumValue = 0
-        blueSlider.maximumValue = 1
         
     }
 
